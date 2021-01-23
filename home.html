@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+  padding: 0;
+  margin: 0;
+  /* font-family: "Jost", sans-serif; */
+  font-family: "Quicksand", sans-serif;
+}
+
+body {
+  background: #f3f2ef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 100vh;
+  width: 100vw;
+}
+
+html,
+body {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+html {
+  background: #eee;
+}
+
+.box {
+  width: 20vw;
+  height: 60vh;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0 0.2rem 3rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.2rem 3rem rgba(0, 0, 0, 0.2);
+  background: #a5bbdd;
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  min-width: 20rem;
+  min-height: 35rem;
+}
+
+.wave {
+  opacity: 0.3;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  background: white;
+  width: 50rem;
+  height: 50rem;
+  margin-left: -25rem;
+  margin-top: -25rem;
+  -webkit-transform-origin: 50% 48%;
+          transform-origin: 50% 48%;
+  border-radius: 43%;
+  -webkit-animation: drift 3000ms infinite linear;
+          animation: drift 3000ms infinite linear;
+  z-index: 1;
+}
+
+.wave.-three {
+  -webkit-animation: drift 5000ms infinite linear;
+          animation: drift 5000ms infinite linear;
+  z-index: 2 !important;
+  opacity: 0.2;
+}
+
+.wave.-two {
+  -webkit-animation: drift 7000ms infinite linear;
+          animation: drift 7000ms infinite linear;
+  opacity: 0.1;
+  z-index: 3 !important;
+}
+
+.box:after {
+  content: "";
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+@-webkit-keyframes drift {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  from {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes drift {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  from {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45%;
+  z-index: 4;
+}
+
+.location {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 800;
+  font-size: 3rem;
+}
+
+.fa-street-view {
+  -webkit-animation: rotates 3s linear infinite alternate;
+          animation: rotates 3s linear infinite alternate;
+}
+
+@-webkit-keyframes rotates {
+  from {
+    -webkit-transform: translateX(-0.5rem);
+            transform: translateX(-0.5rem);
+  }
+  to {
+    -webkit-transform: translateX(0.5rem);
+            transform: translateX(0.5rem);
+  }
+}
+
+@keyframes rotates {
+  from {
+    -webkit-transform: translateX(-0.5rem);
+            transform: translateX(-0.5rem);
+  }
+  to {
+    -webkit-transform: translateX(0.5rem);
+            transform: translateX(0.5rem);
+  }
+}
+
+#date {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #57606f;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.temp {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.tempmin_max {
+  text-align: center;
+  margin-top: 0.3rem;
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: #57606f;
+}
+
+#weathercon {
+  height: 55%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 3em;
+}
+
+#weathercon .fas {
+  font-size: 6rem;
+  -webkit-animation: fas-anime 3s linear infinite alternate;
+          animation: fas-anime 3s linear infinite alternate;
+}
+
+@-webkit-keyframes fas-anime {
+  from {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  to {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+
+@keyframes fas-anime {
+  from {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  to {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+
+@media (max-width: 600px) {
+  .box {
+    width: 90vw;
+    height: 80vh;
+  }
+  .wave {
+    top: 85%;
+  }
+  #weathercon {
+    font-size: 5em;
+  }
+  .info {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-height: 500px) {
+  .box {
+    height: 80vh;
+  }
+  .wave {
+    top: 115%;
+  }
+}
+
+body > span {
+  width: 100vw;
+  text-align: center;
+  color: grey;
+}
+/*# sourceMappingURL=main.css.map */
+    </style>
+    
+</head>
+<body>
+    <div class="box">
+        <div class="wave -one" ></div>
+        <div class="wave -two" ></div>
+        <div class="wave -three" ></div>
+        
+        <div id="weathercon">
+            <i class="fas fa-sun" style="color:#eccc68;"></i>
+        </div>
+
+        <div class="info">
+            <h2 class="location"><i class="fas fa-street-view"></i>{%location%}, {%country%}</h2>
+            <p id="date"></p>
+            <h1 class="temp">{%tempval%}&deg;C</h1>
+            <h3 class="tempmin_max">Feels Like {%tempmin%}&deg;C | Humidity {%tempmax%}</h3>
+        </div>
+    </div>
+    <script>
+        /*  Author Manan Bari */
+/*  Company azadpunchy */
+
+const cur_date = document.getElementById("date");
+const bodyWeathercon = document.getElementById("weathercon");
+
+const tempStatus = '{%tempstatus%}';
+
+// check sunny or cloudy
+
+switch (tempStatus) {
+    case "Sunny":
+        bodyWeathercon.innerHTML = "<i class='fas  fa-sun' style='color: #eccc68;'></i>";
+        break;
+    case "Clear":
+        bodyWeathercon.innerHTML = "<i class='fas  fa-sun' style='color: #eccc68;'></i>";
+        break;
+    case "Clouds":
+        bodyWeathercon.innerHTML = "<i class='fas  fa-cloud' style='color: #f1f2f6;'></i>";
+    case "Rainy":
+        bodyWeathercon.innerHTML = "<i class='fas  fa-cloud-rain' style='color: #a4b0be;'></i>";
+    default:
+        break;
+}
+
+// defining date and time attributes
+const date = new Date();
+
+const getTime = () => {
+  const days = [7];
+  days[0] = "SUN";
+  days[1] = "MON";
+  days[2] = "TUE";
+  days[3] = "WED";
+  days[4] = "THU";
+  days[5] = "FRI";
+  days[6] = "SAT";
+
+  // geting monthss
+  const months = new Array(12);
+  months[0] = "JAN";
+  months[1] = "FEB";
+  months[2] = "MAR";
+  months[3] = "APR";
+  months[4] = "MAY";
+  months[5] = "JUN";
+  months[6] = "JUL";
+  months[7] = "AUG";
+  months[8] = "SEP";
+  months[9] = "OCT";
+  months[10] = "NOV";
+  months[11] = "DEC";
+
+  const day = date.getDate();
+  // getting time
+  let hour = date.getHours();
+  let mint = date.getMinutes();
+  let aM = "am";
+  if (hour > 11) {
+    aM = "pm";
+    if (hour > 12) {
+      hour -= 12;
+    }
+    if (mint < 10) {
+      mint = "0" + mint;
+    }
+  }
+
+   rtrn = `${days[date.getDay()]} | ${
+    months[date.getMonth()]
+  } ${day} | ${hour}:${mint}${aM}`;
+  console.log(rtrn);
+  return rtrn
+
+};
+
+// calling metod getTime
+
+cur_date.innerHTML =  getTime();
+    </script>
+    <!-- <script src="./index.js"></script> -->
+    <!-- <link rel="stylesheet" href="./scss/main.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
+    <!-- <link rel="stylesheet" href="fontawesome/css/all.min.css"> -->
+</body>
+</html>
